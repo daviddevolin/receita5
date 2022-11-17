@@ -1,7 +1,5 @@
 export default function Movies({data}){
-
     return (
-
         <div>
             <form>
                 <label for='title'>
@@ -13,11 +11,8 @@ export default function Movies({data}){
             <div>
                 {data.Search.map( (m) => <div>{m.Title} --- {m.Year} <img src={m.Poster}/></div>  )} 
             </div>
-
         </div>
-
     )
-
 }
 export async function getServerSideProps(context){
     const {title} = context.query
@@ -27,15 +22,10 @@ export async function getServerSideProps(context){
     const data = await res.json()
   
     return {
-  
         props: {
-  
             data
-  
         }
-  
     }
-  
-  }
+}
 
 

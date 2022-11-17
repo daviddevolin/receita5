@@ -12,7 +12,6 @@ const Movies2 = () => {
             { data.Search.map( (m, i) => 
                <li key={i}>
                    <Link href={`/movie/${m.imdbID}`}><a>{m.Title}--- {m.Year}</a></Link>
-                   
                </li>
             )}
         </ul>

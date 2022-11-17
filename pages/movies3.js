@@ -1,5 +1,7 @@
 import useSWR from 'swr'
 import { useState } from 'react'
+import { Button } from 'antd'
+import "antd/dist/antd.css";
 import Link from 'next/link'
 
 
@@ -24,7 +26,11 @@ export function TheMovies({data,show}){
     if (data.Search === '' ) return (<div>carregando...</div>)
     return (
         <div>
-            { data.Search.map( (m) => <div>{m.Title} --- {m.Year}</div>  ) }            
+            { data.Search.map( (m, i) => 
+               <li key={i}>
+                   <Link href={`/onemovie/${m.imdbID}`}><a>{m.Title}</a></Link>
+               </li>
+            )}        
         </div>
     )
 }
@@ -32,7 +38,9 @@ export function TheMovies({data,show}){
 export function TheLink({url, handler}){    
     return (
         <div>
-            <a href="/movies3.js" onClick={handler}> {url === '' ? 'Mostrar' : 'Ocultar'} </a>
+            <Link href="/movies3.js">
+                <Button type='primary' onClick={handler}> {url === '' ? 'Mostrar' : 'Ocultar'}</Button>
+            </Link>
         </div>
     )
 }
