@@ -1,10 +1,15 @@
-import useSWR from 'swr'
-import { useRouter } from 'next/router'
-import Link from 'next/link'
+import useSWR from 'swr';
+import { useRouter } from 'next/router';
+import { Card } from 'antd';
+import "antd/dist/antd.css";
+
+
 export default function MovieID(){
     const router = useRouter()
     const {key} = router.query
     const {data, error} = useSWR(`https://www.omdbapi.com/?apikey=5d61b462&s=${key}`, fetcher)
+    const { Meta } = Card;
+
     if (error) return <div>falha na requisição...</div>
     if (!data) return <div>carregando...</div>
 
@@ -12,12 +17,15 @@ export default function MovieID(){
     return (
             <div>
                 {data.Search.map((m) => (
-                    <div>
-                        {m.Title} --- {m.Year}
-                        <div>
-                            <img style={{ width: '200px' }} variant="top" src={m.Poster}/>
-                        </div>
-                    </div>
+                    <Card
+                        hoverable
+                        style={{
+                            width: 240,
+                        }}
+                        cover={<img src={m.Poster}/>}
+                    >
+                        <Meta  title={m.Title} description={m.Year} />
+                    </Card>
                 ))} 
             </div>
     )    

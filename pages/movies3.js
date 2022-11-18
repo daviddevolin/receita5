@@ -1,8 +1,8 @@
-import useSWR from 'swr'
-import { useState } from 'react'
-import { Button } from 'antd'
+import useSWR from 'swr';
+import { useState } from 'react';
+import { Button } from 'antd';
 import "antd/dist/antd.css";
-import Link from 'next/link'
+import Link from 'next/link';
 
 
 export default function Movies3(){
