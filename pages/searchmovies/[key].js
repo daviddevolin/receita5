@@ -4,7 +4,7 @@ import { Card } from 'antd';
 import "antd/dist/antd.css";
 
 
-export default function MovieID(){
+export default function MovieSearch(){
     const router = useRouter()
     const {key} = router.query
     const {data, error} = useSWR(`https://www.omdbapi.com/?apikey=5d61b462&s=${key}`, fetcher)
@@ -12,8 +12,6 @@ export default function MovieID(){
 
     if (error) return <div>falha na requisição...</div>
     if (!data) return <div>carregando...</div>
-
-    console.log(data)
     return (
             <div>
                 {data.Search.map((m) => (
