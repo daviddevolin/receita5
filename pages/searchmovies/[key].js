@@ -12,6 +12,8 @@ export default function MovieSearch(){
 
     if (error) return <div>falha na requisição...</div>
     if (!data) return <div>carregando...</div>
+    if (data.Response=="False")return<div>filme não encontrado...</div>
+    console.log(data)
     return (
         <Space direction="horizontal" style={{width: '100%', justifyContent: 'center', flexWrap:'wrap'}}>
             {data.Search.map((m) => (
