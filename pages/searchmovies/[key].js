@@ -1,6 +1,6 @@
 import useSWR from 'swr';
 import { useRouter } from 'next/router';
-import { Card } from 'antd';
+import { Card, Space} from 'antd';
 import "antd/dist/antd.css";
 
 
@@ -13,19 +13,19 @@ export default function MovieSearch(){
     if (error) return <div>falha na requisição...</div>
     if (!data) return <div>carregando...</div>
     return (
-            <div>
-                {data.Search.map((m) => (
-                    <Card
-                        hoverable
-                        style={{
-                            width: 240,
-                        }}
-                        cover={<img src={m.Poster}/>}
-                    >
-                        <Meta  title={m.Title} description={m.Year} />
-                    </Card>
-                ))} 
-            </div>
+        <Space direction="horizontal" style={{width: '100%', justifyContent: 'center'}}>
+            {data.Search.map((m) => (
+                <Card
+                    hoverable
+                    style={{
+                        width: 240,
+                    }}
+                    cover={<img src={m.Poster}/>}
+                >
+                    <Meta  title={m.Title} description={m.Year} />
+                </Card>
+            ))} 
+        </Space>     
     )    
   }
 

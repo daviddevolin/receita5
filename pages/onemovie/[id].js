@@ -1,6 +1,6 @@
 import useSWR from 'swr';
 import { useRouter } from 'next/router';
-import { Card } from 'antd';
+import { Card, Space } from 'antd';
 import "antd/dist/antd.css";
 
 export default function MovieID(){
@@ -12,7 +12,7 @@ export default function MovieID(){
     if (!data) return <div>carregando...</div>
   
     return (
-      <div id="content">
+      <Space direction="horizontal" style={{width: '100%', justifyContent: 'center'}}>
         <Card
             hoverable
             style={{
@@ -22,7 +22,7 @@ export default function MovieID(){
         >
             <Meta  title={data.Title} description={data.Year} />
         </Card>
-      </div>  
+      </Space>
     )    
   }
 

@@ -25,10 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/onemovie/[id]": [
+    "/searchmovies/[key]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/onemovie/[id].js"
+      "static/chunks/pages/searchmovies/[key].js"
     ]
   },
   "ampFirstPages": []

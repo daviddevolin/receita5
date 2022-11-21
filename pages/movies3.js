@@ -1,6 +1,7 @@
 import useSWR from 'swr';
 import { useState } from 'react';
-import { Button } from 'antd';
+import { Button ,Tooltip, Space } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
 import "antd/dist/antd.css";
 import Link from 'next/link';
 
@@ -17,6 +18,7 @@ export default function Movies3(){
         <div>
             <TheLink url={url} handler={onClickHandler}/>
             <TheMovies data={ error?{error:'Erro na pesquisa'}: data ? data: {Search:''} } show={url !== ''}/>
+            
         </div>
     )
 }
@@ -41,6 +43,9 @@ export function TheLink({url, handler}){
             <Link href="/movies3.js">
                 <Button type='primary' onClick={handler}> {url === '' ? 'Mostrar' : 'Ocultar'}</Button>
             </Link>
+            <Button type="dashed" icon={<SearchOutlined />}  href="/searchmovies">
+                pesquisar filme
+            </Button>
         </div>
     )
 }
