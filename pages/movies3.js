@@ -1,7 +1,8 @@
 import useSWR from 'swr';
 import { useState } from 'react';
-import { Button ,Tooltip, Space } from 'antd';
+import { Button  } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import Head from 'next/head';
 import "antd/dist/antd.css";
 import Link from 'next/link';
 
@@ -40,6 +41,12 @@ export function TheMovies({data,show}){
 export function TheLink({url, handler}){    
     return (
         <div>
+             <Head>
+                <meta
+                http-equiv="Content-Security-Policy"
+                content="upgrade-insecure-requests"
+                />
+            </Head>
             <Link href="/movies3.js">
                 <Button type='primary' onClick={handler}> {url === '' ? 'Mostrar' : 'Ocultar'}</Button>
             </Link>
