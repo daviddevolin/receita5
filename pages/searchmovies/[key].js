@@ -13,7 +13,7 @@ export default function MovieSearch(){
     if (error) return <div>falha na requisição...</div>
     if (!data) return <div>carregando...</div>
     return (
-        <Space direction="horizontal" style={{width: '100%', justifyContent: 'center'}}>
+        <Space direction="horizontal" style={{width: '100%', justifyContent: 'center', flexWrap:'wrap'}}>
             {data.Search.map((m) => (
                 <Card
                     hoverable
