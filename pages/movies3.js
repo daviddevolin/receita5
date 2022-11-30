@@ -50,7 +50,7 @@ export function TheLink({url, handler}){
             <Link href="/movies3.js">
                 <Button type='primary' onClick={handler}> {url === '' ? 'Mostrar' : 'Ocultar'}</Button>
             </Link>
-            <Button type="dashed" icon={<SearchOutlined />}  href="/searchmovies">
+            <Button type="dashed" icon={<SearchOutlined />}  href="/search">
                 pesquisar filme
             </Button>
         </div>
